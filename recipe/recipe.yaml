@@ -11,6 +11,8 @@ source:
   - git_url: https://github.com/ipab-slmc/eigenpy_catkin-release.git
     git_rev: release/melodic/eigenpy/2.3.1-1
     folder: ros-melodic-eigenpy/src/work
+    patches:
+      - patch/ros-melodic-eigenpy.patch
 
 build:
   number: 0
