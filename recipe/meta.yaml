@@ -3,9 +3,16 @@ package:
   version: 2020.07.22
 
 source:
+  - git_url: https://github.com/ros-gbp/catkin-release.git
+    git_rev: release/melodic/catkin/0.7.26-1
+    folder: ros-melodic-catkin/src/work
+    patches:
+      - patch/ros-melodic-catkin.patch
   - git_url: https://github.com/ipab-slmc/eigenpy_catkin-release.git
     git_rev: release/melodic/eigenpy/2.3.1-1
     folder: ros-melodic-eigenpy/src/work
+    patches:
+      - patch/ros-melodic-eigenpy.patch
 
 build:
   number: 0
@@ -20,6 +27,35 @@ extra:
   recipe-maintainers:
     - ros-forge
 outputs:
+  - package:
+      name: ros-melodic-catkin
+      version: 0.7.26
+    requirements:
+      build:
+        - "{{ compiler('cxx') }}"
+        - "{{ compiler('c') }}"
+        - ninja
+        - cmake
+      host:
+        - catkin_pkg
+        - cmake
+        - empy
+        - gmock
+        - gtest
+        - mock
+        - nose
+        - python
+        - setuptools
+      run:
+        - catkin_pkg
+        - cmake
+        - empy
+        - gmock
+        - gtest
+        - nose
+        - python
+    build:
+      script: build_catkin.sh
   - package:
       name: ros-melodic-eigenpy
       version: 2.3.1
