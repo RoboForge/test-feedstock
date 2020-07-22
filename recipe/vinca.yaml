@@ -17,7 +17,8 @@ packages_remove_from_deps:
   - stage
 
 packages_select_by_deps:
-  - ros_comm
+  - catkin
+  # - ros_comm
   # - message_runtime
   # - moveit
   # - ros_core

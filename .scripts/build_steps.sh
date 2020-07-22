@@ -34,13 +34,14 @@ boa build "${RECIPE_ROOT}"
 # conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
 #     --suppress-variables \
 #     --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml"
-validate_recipe_outputs "${FEEDSTOCK_NAME}"
+# validate_recipe_outputs "${FEEDSTOCK_NAME}"
 
-if [[ "${UPLOAD_PACKAGES}" != "False" ]]; then
-   upload_package --validate --feedstock-name="${FEEDSTOCK_NAME}"  "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
-fi
+# if [[ "${UPLOAD_PACKAGES}" != "False" ]]; then
+#    upload_package --validate --feedstock-name="${FEEDSTOCK_NAME}"  "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
+# fi
 if (set +u; [[ ! -z ${QUETZ_URL} ]]); then
-   quetz-client ${QUETZ_URL} ${FEEDSTOCK_ROOT}
+   quetz-client ${QUETZ_URL} /opt/conda/build_artifacts
 fi
 
+mkdir -p "${FEEDSTOCK_ROOT}/build_artifacts/"
 touch "${FEEDSTOCK_ROOT}/build_artifacts/conda-forge-build-done-${CONFIG}"
