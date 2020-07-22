@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c8c1e6c..8466784 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -117,6 +117,7 @@ target_link_libraries(franka_control_node
+   ${Franka_LIBRARIES}
+   franka_control_services
+   ${catkin_LIBRARIES}
++  rt
+ )
+ 
+ target_include_directories(franka_control_node SYSTEM PUBLIC

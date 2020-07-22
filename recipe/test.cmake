@@ -1,0 +1,23 @@
+project(asdasd)
+
+set(libraries "rviz;/home/wolfv/miniconda3/conda-bld/ros_1584627765500/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeho/lib/libOgreOverlay.so;/home/wolfv/miniconda3/conda-bld/ros_1584627765500/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeho/lib/libOgreMain.so;/home/wolfv/miniconda3/conda-bld/ros_1584627765500/_build_env/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/libpthread.so")
+
+foreach(library ${libraries})
+  if(NOT IS_ABSOLUTE ${library})
+    # Append -l to anything that's not a linker flag
+    if(NOT ${library} MATCHES "^-")
+      set(library "-l${library}")
+    endif()
+  endif()
+  if (${library} MATCHES ".*pthread.so$")
+    set(library "pthread")
+  endif()
+  if (${library} MATCHES ".*rt.so$")
+    set(library "rt")
+  endif()
+  if (${library} MATCHES ".*dl.so$")
+    set(library "dl")
+  endif()
+  list_append_deduplicate(PKG_CONFIG_LIBRARIES_WITH_PREFIX ${library})
+endforeach()
+message("${PKG_CONFIG_LIBRARIES_WITH_PREFIX}")
