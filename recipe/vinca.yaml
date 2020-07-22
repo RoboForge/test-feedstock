@@ -17,20 +17,20 @@ packages_remove_from_deps:
   - stage
 
 packages_select_by_deps:
-  - catkin
+  # - catkin
   # - ros_comm
   # - message_runtime
   # - moveit
   # - ros_core
-  # - rosbridge_suite
-  # - tf2_web_republisher
+  - rosbridge_suite
+  - tf2_web_republisher
   # - rviz_visual_tools
   # - rostime
   # - desktop-full
   # - libfranka
   # - python_orocos_kdl
   # - python_qt_binding
-  # - franka_ros
+  - franka_ros
   # - eigenpy
   # - franka_gripper
   # - franka_control
