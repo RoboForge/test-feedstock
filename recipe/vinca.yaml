@@ -17,6 +17,7 @@ packages_remove_from_deps:
   - stage
 
 packages_select_by_deps:
+  - ros_comm
   # - message_runtime
   # - moveit
   # - ros_core
@@ -28,7 +29,7 @@ packages_select_by_deps:
   # - libfranka
   # - python_orocos_kdl
   # - python_qt_binding
-  - franka_ros
+  # - franka_ros
   # - eigenpy
   # - franka_gripper
   # - franka_control
