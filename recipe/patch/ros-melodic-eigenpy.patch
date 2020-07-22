@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 68b65bb..3ae83fa 100644
+index 68b65bb..34fbe81 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -65,7 +65,8 @@ ENDIF(WIN32)
@@ -21,3 +21,12 @@ index 68b65bb..3ae83fa 100644
  INSTALL(TARGETS ${PROJECT_NAME}
    EXPORT ${TARGETS_EXPORT_NAME}
    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}
+@@ -203,7 +204,7 @@ ADD_SUBDIRECTORY(python)
+ # ----------------------------------------------------
+ # --- UNIT TEST --------------------------------------
+ # ----------------------------------------------------
+-ADD_SUBDIRECTORY(unittest)
++# ADD_SUBDIRECTORY(unittest)
+ 
+ PKG_CONFIG_APPEND_LIBS(${PROJECT_NAME})
+ PKG_CONFIG_APPEND_CFLAGS("-I${PYTHON_INCLUDE_DIRS}")
