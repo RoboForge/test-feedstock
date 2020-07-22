@@ -1,2 +1,0 @@
-ros-melodic-rostopic
-numpy==1.14.*
