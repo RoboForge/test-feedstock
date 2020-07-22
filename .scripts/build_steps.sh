@@ -15,7 +15,7 @@ export CONFIG_FILE="${CI_SUPPORT}/${CONFIG}.yaml"
 cat >~/.condarc <<CONDARC
 
 conda-build:
- root-dir: ${FEEDSTOCK_ROOT}/build_artifacts
+ root-dir: /opt/conda/build_artifacts
 
 CONDARC
 
@@ -29,6 +29,7 @@ source run_conda_forge_build_setup
 # make the build number clobber
 make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
+export "CONDA_BLD_PATH=/opt/conda/build_artifacts"
 boa build "${RECIPE_ROOT}"
 # conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
 #     --suppress-variables \
